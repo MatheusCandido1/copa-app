@@ -4,6 +4,7 @@ import { useTheme } from 'native-base';
 import { Create } from "../screens/Pools/Create";
 import { List } from "../screens/Pools/List";
 import { Show } from "../screens/Pools/Show";
+import { Details } from "../screens/Pools/Details";
 
 import { Platform } from "react-native";
 
@@ -55,6 +56,12 @@ export function AppRoutes() {
       <Screen 
         name="showPool" 
         component={Show}
+        options={{ tabBarButton: () => null}}
+      />
+
+      <Screen
+        name="detailsPool"
+        component={Details}
         options={{ tabBarButton: () => null}}
       />
     </Navigator>
