@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
-import { VStack, useToast, Box, Text, HStack, FlatList } from "native-base";
+import { useToast, Box, Text, FlatList } from "native-base";
+import { Share } from 'react-native';
 
 import { api } from '../services/api'
 
 import { Game, GameProps} from '../components/Game';
+import { EmptyMyPoolList } from './EmptyMyPoolList';
 import { Loading } from './Loading';
 
 interface Props {
   poolId: string;
+  code: string;
 }
 
-export function Guesses({ poolId }: Props) {
+export function Guesses({ poolId, code }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [games, setGames] = useState<GameProps[]>([])
   const [firstTeamPoints, setFirstTeamPoints] = useState('');
@@ -42,6 +45,8 @@ export function Guesses({ poolId }: Props) {
       setIsLoading(false);
     }
   }
+
+
 
   async function handleGuessConfirmation(gameId: string) {
     if(!firstTeamPoints.trim() || !secondTeamPoints.trim()) {
@@ -120,6 +125,8 @@ export function Guesses({ poolId }: Props) {
           onGuessConfirm={() => handleGuessConfirmation(item.id)}
         /> 
       )}
+      _contentContainerStyle={{pb: 10}}
+      ListEmptyComponent={<EmptyMyPoolList code={code} />}
     />
   );
 }
