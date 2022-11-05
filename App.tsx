@@ -1,6 +1,7 @@
 import { NativeBaseProvider, StatusBar } from 'native-base';
 
 import { THEME } from './src/styles/theme'
+import { AuthContextProvider } from './src/contexts/AuthContexts';
 
 import { Loading } from './src/components/Loading';
 
@@ -11,12 +12,14 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={THEME}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      <SignIn />
+      <AuthContextProvider>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        <SignIn />
+      </AuthContextProvider>
     </NativeBaseProvider>
   )
 
