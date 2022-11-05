@@ -2,10 +2,10 @@ import { VStack, Icon } from 'native-base'
 
 import { Octicons } from '@expo/vector-icons';
 
-import { Button } from '../components/Button'
-import { Header } from '../components/Header'
+import { Button } from '../../components/Button'
+import { Header } from '../../components/Header'
 
-export function ListPool() {
+export function List() {
   return (
     <VStack flex={1} bgColor="gray.900">
       <Header title="Meus Boloões" />
