@@ -3,6 +3,7 @@ import { useTheme } from 'native-base';
 
 import { Create } from "../screens/Pools/Create";
 import { List } from "../screens/Pools/List";
+import { Show } from "../screens/Pools/Show";
 
 import { Platform } from "react-native";
 
@@ -49,6 +50,12 @@ export function AppRoutes() {
           tabBarIcon: ({ color }) => <SoccerBall size={size} color={color} />,
           tabBarLabel: 'Meus Bolões'
         }}
+      />
+
+      <Screen 
+        name="showPool" 
+        component={Show}
+        options={{ tabBarButton: () => null}}
       />
     </Navigator>
   )
